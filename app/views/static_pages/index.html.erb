@@ -1,5 +1,13 @@
 
 <%= form_with url: root_path, method: :get do |form|%>
- <%= form.text_field :id %>
+ <%= form.text_field :user_id, value: "201538405@N05" %>
  <%= form.submit "Search" %>
+<% end %>
+<br>
+<% if @photos%>
+    <div>
+        <% @photos.each do |photo| %>
+            <div><%= image_tag "https://live.staticflickr.com/#{photo.server}/#{photo.id}_#{photo.secret}.jpg" %> </div>
+        <% end %>
+    </div>
 <% end %>
